@@ -4,14 +4,16 @@ using EFCoreCodeFirstSample.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCoreCodeFirstSample.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20190303031832_EFCoreCodeFirstSample.Models.EmployeeContextSeed")]
+    partial class EFCoreCodeFirstSampleModelsEmployeeContextSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,8 +32,6 @@ namespace EFCoreCodeFirstSample.Migrations
                     b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
-
-                    b.Property<string>("Gender");
 
                     b.Property<string>("LastName");
 

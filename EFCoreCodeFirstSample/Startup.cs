@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using EFCoreCodeFirstSample.Extensions;
 using EFCoreCodeFirstSample.Models;
+using EFCoreCodeFirstSample.Models.DataManager;
+using EFCoreCodeFirstSample.Models.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +41,7 @@ namespace EFCoreCodeFirstSample
       });
 
       services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(Configuration["ConnectionString:EmployeeDB"]));
-
+      services.AddScoped<IDataRepository<Employee>, EmployeeManager>();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
